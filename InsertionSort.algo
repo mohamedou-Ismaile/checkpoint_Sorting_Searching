@@ -1,0 +1,29 @@
+FUNCTION InsertionSort(arr : ARRAY_OF INTEGER) : INTEGER
+VAR
+    i,j,n,key: INTEGER;
+BEGIN
+ n:= arr.length;
+ i:=1;
+ j:=0;
+    WHILE (i<n) DO
+        key:=arr[i];
+        j:=i-1;
+        WHILE ((j>=0) AND arr[j]>key) DO
+            arr[j+1]:=arr[j];
+            j:=j-1;
+        END_WHILE
+        arr[j+1]:=key;
+        i:=i+1
+    END_WHILE
+    RETURN arr ;
+END
+
+
+ALGORITHM Test_InsertionSort
+VAR
+    arr: ARRAY_OF INTEGER:=[50, 30, 60, 12, 20, 10];
+BEGIN
+    InsertionSort(arr)
+    Write(arr)
+END
+
